@@ -1,0 +1,2 @@
+Prueba inocua de escritura realizada por ChatGPT el 15 de agosto de 2026.
+Este archivo se crea únicamente para comprobar que la conexión de GitHub permite escribir en el repositorio.
