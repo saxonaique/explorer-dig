@@ -24,7 +24,7 @@ Estos motores se conservan como originales. Las campañas comparativas deben ide
 - [Auditoría preliminar GDIG-101/102](AUDITORIA_PRELIMINAR_GDIG101_102.md): hallazgos, límites de evidencia y próximos pasos de reproducción.\n- [Resultados estructurados GDIG-101/102 (JSON)](GDIG101_102_reproduccion_resultados.json): diez registros GDIG-101 con matrices de slots de ambos motores y resumen comunicado de GDIG-102.
 - [Resumen tabular GDIG-101/102 (CSV)](GDIG101_102_reproduccion_resultados.csv): métricas resumidas por condición y semilla.
 
-**Estado documental:** los archivos JSON y CSV están presentes en el repositorio y el JSON se ha podido abrir y analizar estructuralmente. Las señales originales CSV de GDIG-101 todavía no constan en el árbol inspeccionado. La fórmula de distancia y los cálculos GDIG-102 aún requieren auditoría independiente. Por tanto, los valores del resumen no deben tratarse todavía como reproducidos o verificados.
+**Estado documental:** los archivos JSON y CSV de la Comparativa 001 están presentes en el repositorio. Las señales originales CSV de GDIG-101 todavía no constan en el árbol inspeccionado. Las medias de distancias directas y óptimas del análisis de correspondencia GDIG-102 se han comprobado aritméticamente desde la transcripción del contenido comunicado por JMPR; esta transcripción no sustituye al JSON original. La fórmula, el script y la optimalidad global de las permutaciones siguen pendientes de auditoría independiente. No debe confundirse una comprobación aritmética con una reproducción experimental.
 
 ## Organización prevista para nuevos materiales
 
