@@ -85,7 +85,7 @@ Hay además una diferencia metodológica que impide interpretar la distancia com
 
 ## 7. Actualización GDIG-102 — correspondencia óptima entre slots
 
-**Datos comunicados por JMPR el 2026-11-15; pendientes de inspección del artefacto JSON original.**
+**Datos recibidos de JMPR el 2026-11-15 e inspeccionados numéricamente.** La transcripción estructurada del contenido recibido se conserva en `docs/GDIG102_distancia_correspondencia_optima_comunicado.json`. No se ha podido contrastar todavía con el archivo original generado ni con el script de cálculo.
 
 Se informa de un segundo análisis que calcula, para cada uno de los diez pares de semillas, la distancia directa y la distancia mínima tras buscar una correspondencia óptima entre slots. El resumen comunicado es:
 
@@ -147,7 +147,7 @@ La correspondencia óptima constituye un análisis adicional útil para separar 
 | Señales originales GDIG-101 | No localizadas en el árbol inspeccionado |
 | Script auxiliar de reproducción | Pendiente de localizar |
 | Fórmula original GDIG-102 | Pendiente de localizar |
-| Distancias GDIG-102 | Comunicadas, no reproducidas |
+| Distancias directas y óptimas GDIG-102: estructura y medias del JSON recibido | Verificadas aritméticamente desde la transcripción conservada |\n| Optimalidad global de las permutaciones GDIG-102 | Pendiente de auditar el algoritmo y los costes/matrices |\n| Contraste con el JSON original de ejecución | Pendiente |
 | Comparación estricta con entradas equivalentes | No realizada |
 
 ---
