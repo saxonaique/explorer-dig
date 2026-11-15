@@ -82,6 +82,50 @@ Estos valores se registran como resultados comunicados pendientes de reproducci�
 
 Hay además una diferencia metodológica que impide interpretar la distancia como comparación estricta de respuesta a una misma entrada: en la reproducción descrita, Core recibió patrones sintéticos de rejilla (clases A/B/C), mientras Explorer recibió señales temporales de 120 s a 250 Hz con ráfagas de frecuencias distintas. La distancia puede describir estabilidad interna dentro de cada motor, pero no establece por sí sola cuál responde mejor ante entradas equivalentes.
 
+
+## 7. Actualización GDIG-102 — correspondencia óptima entre slots
+
+**Datos comunicados por JMPR el 2026-11-15; pendientes de inspección del artefacto JSON original.**
+
+Se informa de un segundo análisis que calcula, para cada uno de los diez pares de semillas, la distancia directa y la distancia mínima tras buscar una correspondencia óptima entre slots. El resumen comunicado es:
+
+| Motor | Distancia directa | Distancia con correspondencia óptima | Reducción |
+|---|---:|---:|---:|
+| DIG Core v1.0 | 2,8783 | 2,8230 | 0,0553 |
+| DIG Explorer v1.0 | 1,0922 | 1,0922 | 0,0000 |
+
+Permutaciones comunicadas:
+
+- **Core:** 8 de 10 pares conservan la identidad; 2 pares aplican intercambio A↔B.
+- **Explorer:** los 10 pares conservan la identidad.
+
+### Interpretación provisional
+
+- La optimización reduce ligeramente la distancia de Core, pero no elimina su mayor divergencia entre semillas. Por tanto, según este análisis, el resultado no parece explicarse únicamente por un intercambio de etiquetas entre slots.
+- Explorer no presenta reducción porque la correspondencia óptima comunicada coincide con la identidad en los diez pares.
+- La diferencia entre las distancias medias de ambos motores persiste después de optimizar la correspondencia.
+
+Esta lectura describe estabilidad/alineación de las representaciones entre semillas bajo el procedimiento empleado. No demuestra por sí sola que las representaciones de Explorer sean más correctas, más expresivas o científicamente superiores. Tampoco resuelve la diferencia metodológica ya señalada sobre las entradas utilizadas por cada motor.
+
+### Artefacto pendiente de incorporar y auditar
+
+Se comunica la generación de:
+
+`output/reproduccion_controlada/GDIG102_distancia_correspondencia_optima.json`
+
+Según la descripción recibida, contiene para cada uno de los diez pares de semillas la distancia directa, la distancia óptima y la permutación seleccionada.
+
+**El archivo no se ha inspeccionado todavía en este repositorio.** Hasta que se incorpore o se facilite su contenido, las cifras y permutaciones de esta sección deben considerarse resultados comunicados, no verificados independientemente. Queda pendiente:
+
+1. Incorporar el JSON original sin modificarlo.
+2. Inspeccionar sus diez registros y comprobar que los promedios y reducciones coinciden con la tabla.
+3. Revisar el algoritmo de asignación, la métrica usada, el tratamiento de empates y el orden de slots.
+4. Comprobar que cada distancia óptima corresponde al mínimo entre las permutaciones admisibles y que la distancia directa usa la identidad.
+5. Registrar el script exacto, parámetros, versiones y hashes para hacer reproducible el cálculo.
+
+La correspondencia óptima constituye un análisis adicional útil para separar variabilidad de contenido y variabilidad de etiquetas de slots. No sustituye la auditoría de las señales, del procedimiento de generación ni de la comparabilidad de entradas.
+
+
 ## 5. Próximos pasos de auditoría
 
 1. Localizar el script auxiliar que generó el JSON/CSV y calculó GDIG-102.
