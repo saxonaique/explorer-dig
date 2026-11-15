@@ -85,46 +85,35 @@ Hay además una diferencia metodológica que impide interpretar la distancia com
 
 ## 7. Actualización GDIG-102 — correspondencia óptima entre slots
 
-**Datos recibidos de JMPR el 2026-11-15 e inspeccionados numéricamente.** La transcripción estructurada del contenido recibido se conserva en `docs/GDIG102_distancia_correspondencia_optima_comunicado.json`. No se ha podido contrastar todavía con el archivo original generado ni con el script de cálculo.
+**Datos recibidos de JMPR el 2026-11-15.** La transcripción estructurada del contenido pegado se conserva en `docs/GDIG102_distancia_correspondencia_optima_comunicado.json`. Este archivo es una transcripción del material comunicado, no el JSON original generado por el entorno experimental.
 
-Se informa de un segundo análisis que calcula, para cada uno de los diez pares de semillas, la distancia directa y la distancia mínima tras buscar una correspondencia óptima entre slots. El resumen comunicado es:
+El análisis contiene diez pares de semillas por motor y, para cada par, una distancia directa y otra tras aplicar la permutación de slots comunicada como óptima.
 
-| Motor | Distancia directa | Distancia con correspondencia óptima | Reducción |
+| Motor | Distancia directa media | Distancia óptima media | Reducción media |
 |---|---:|---:|---:|
-| DIG Core v1.0 | 2,8783 | 2,8230 | 0,0553 |
-| DIG Explorer v1.0 | 1,0922 | 1,0922 | 0,0000 |
+| DIG Core v1.0 | 2,878268 | 2,823041 | 0,055227 |
+| DIG Explorer v1.0 | 1,092239 | 1,092239 | 0,000000 |
 
-Permutaciones comunicadas:
+**Permutaciones comunicadas:** Core conserva la identidad en 8 de 10 pares y aplica el intercambio A↔B en 2 pares ([1,0,2]); Explorer conserva la identidad en los 10 pares.
 
-- **Core:** 8 de 10 pares conservan la identidad; 2 pares aplican intercambio A↔B.
-- **Explorer:** los 10 pares conservan la identidad.
+### Qué queda respaldado por los datos recibidos
 
-### Interpretación provisional
+- La estructura de diez pares por motor, las permutaciones transcritas y las medias anteriores se han comprobado aritméticamente a partir del contenido pegado por JMPR y conservado en el JSON de transcripción.
+- La optimización reduce ligeramente la distancia media de Core; la reducción no elimina la diferencia entre las medias de ambos motores.
+- En Explorer, las permutaciones comunicadas son todas la identidad y no producen reducción.
 
-- La optimización reduce ligeramente la distancia de Core, pero no elimina su mayor divergencia entre semillas. Por tanto, según este análisis, el resultado no parece explicarse únicamente por un intercambio de etiquetas entre slots.
-- Explorer no presenta reducción porque la correspondencia óptima comunicada coincide con la identidad en los diez pares.
-- La diferencia entre las distancias medias de ambos motores persiste después de optimizar la correspondencia.
+Esta lectura describe la alineación de las representaciones entre semillas según el procedimiento comunicado. No demuestra que Explorer sea más correcto, más expresivo o científicamente superior. Tampoco resuelve la diferencia metodológica ya señalada: Core y Explorer no recibieron entradas equivalentes.
 
-Esta lectura describe estabilidad/alineación de las representaciones entre semillas bajo el procedimiento empleado. No demuestra por sí sola que las representaciones de Explorer sean más correctas, más expresivas o científicamente superiores. Tampoco resuelve la diferencia metodológica ya señalada sobre las entradas utilizadas por cada motor.
+### Auditoría todavía pendiente
 
-### Artefacto pendiente de incorporar y auditar
+No se ha contrastado la transcripción con el JSON original generado por el entorno ni con el script que produjo los resultados. Tampoco se ha verificado todavía:
 
-Se comunica la generación de:
+1. La fórmula exacta de distancia y la construcción de las matrices/costes.
+2. Que las permutaciones seleccionadas sean el mínimo global entre todas las permutaciones admisibles.
+3. El tratamiento de empates, el orden de slots y la correspondencia entre matrices.
+4. La reproducción independiente desde los artefactos originales, con parámetros, versiones y hashes.
 
-`output/reproduccion_controlada/GDIG102_distancia_correspondencia_optima.json`
-
-Según la descripción recibida, contiene para cada uno de los diez pares de semillas la distancia directa, la distancia óptima y la permutación seleccionada.
-
-**El archivo no se ha inspeccionado todavía en este repositorio.** Hasta que se incorpore o se facilite su contenido, las cifras y permutaciones de esta sección deben considerarse resultados comunicados, no verificados independientemente. Queda pendiente:
-
-1. Incorporar el JSON original sin modificarlo.
-2. Inspeccionar sus diez registros y comprobar que los promedios y reducciones coinciden con la tabla.
-3. Revisar el algoritmo de asignación, la métrica usada, el tratamiento de empates y el orden de slots.
-4. Comprobar que cada distancia óptima corresponde al mínimo entre las permutaciones admisibles y que la distancia directa usa la identidad.
-5. Registrar el script exacto, parámetros, versiones y hashes para hacer reproducible el cálculo.
-
-La correspondencia óptima constituye un análisis adicional útil para separar variabilidad de contenido y variabilidad de etiquetas de slots. No sustituye la auditoría de las señales, del procedimiento de generación ni de la comparabilidad de entradas.
-
+Por tanto, las medias están **verificadas aritméticamente desde la transcripción**, pero el algoritmo, la métrica y la optimalidad global siguen pendientes de auditoría.
 
 ## 5. Próximos pasos de auditoría
 
@@ -140,14 +129,16 @@ La correspondencia óptima constituye un análisis adicional útil para separar 
 
 | Elemento | Estado |
 |---|---|
-| JSON y CSV presentes en GitHub | Verificado por lectura del repositorio |
-| Estructura del JSON y diez registros | Inspeccionado |
+| JSON y CSV GDIG-101/102 presentes en GitHub | Verificado por lectura del repositorio |
+| Estructura del JSON y diez registros GDIG-101 | Inspeccionado |
 | Resumen de asignaciones GDIG-101 | Calculado desde el CSV disponible |
 | Matrices de slots | Presentes en JSON; análisis de contenido pendiente |
 | Señales originales GDIG-101 | No localizadas en el árbol inspeccionado |
 | Script auxiliar de reproducción | Pendiente de localizar |
 | Fórmula original GDIG-102 | Pendiente de localizar |
-| Distancias directas y óptimas GDIG-102: estructura y medias del JSON recibido | Verificadas aritméticamente desde la transcripción conservada |\n| Optimalidad global de las permutaciones GDIG-102 | Pendiente de auditar el algoritmo y los costes/matrices |\n| Contraste con el JSON original de ejecución | Pendiente |
+| Distancias directas/óptimas y medias de la transcripción comunicada | Verificadas aritméticamente |
+| Optimalidad global de las permutaciones GDIG-102 | Pendiente de auditar algoritmo y matrices/costes |
+| Contraste con el JSON original de ejecución | Pendiente |
 | Comparación estricta con entradas equivalentes | No realizada |
 
 ---
