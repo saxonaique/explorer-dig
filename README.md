@@ -1,4 +1,8 @@
 # Explorex DIG (Dynamic Information Grounding)
+
+> **Índice del proyecto:** consulta [la guía de organización y documentación](docs/README.md) para localizar los motores originales, protocolos y expediente de la Comparativa 001.  
+> **Conservación:** los motores fundacionales se mantienen en `DIG_Explorer_v1/`; los resultados experimentales y sus estados de verificación se documentan por separado.  
+>
 ## Microscopio Informacional v1.0
 
 > *Arrastra cualquier señal. DIG observa sin etiquetas.*
